@@ -1,19 +1,17 @@
-diff -ruN optipng-0.4.3./src/scripts/Makefile.gcc optipng-0.4.3/src/scripts/Makefile.gcc
---- optipng-0.4.3./src/scripts/Makefile.gcc	2003-05-12 23:11:56.000000000 +0200
-+++ optipng-0.4.3/src/scripts/Makefile.gcc	2004-04-21 02:12:00.845088264 +0200
-@@ -1,21 +1,24 @@
- # ** OptiPNG
- # ** Quick and dirty makefile for GCC
+diff -ruN optipng-0.4.5./src/scripts/Makefile.gcc optipng-0.4.5/src/scripts/Makefile.gcc
+--- optipng-0.4.5./src/scripts/Makefile.gcc	2004-08-01 22:19:38.000000000 +0200
++++ optipng-0.4.5/src/scripts/Makefile.gcc	2004-08-01 22:30:41.698046672 +0200
+@@ -3,22 +3,25 @@
+ 
+ all: optipng
  
 +CC=gcc
 +CFLAGS=-O2
 +
- all: optipng
- 
- optipng: optipng.o opngio.o opngreduc.o cbitset.o \
+ optipng: optipng.o opngio.o opngreduc.o cbitset.o osys.o \
    wildargs.o libpng.a libz.a
--	gcc -s -o optipng optipng.o opngio.o opngreduc.o cbitset.o \
-+	$(CC) -o optipng optipng.o opngio.o opngreduc.o cbitset.o \
+-	gcc -s -o optipng optipng.o opngio.o opngreduc.o cbitset.o osys.o \
++	$(CC) -lm -s -o optipng optipng.o opngio.o opngreduc.o cbitset.o osys.o \
  	  wildargs.o libpng.a libz.a
  
  .c.o: #png.h opng.h
@@ -24,15 +22,20 @@ diff -ruN optipng-0.4.3./src/scripts/Makefile.gcc optipng-0.4.3/src/scripts/Make
 -	gcc -c -O2 -Wall $*.c
 +	$(CC) -c $(CFLAGS) -Wall $*.c
  
+ osys.o: osys.c osys.h
+-	gcc -c -O2 -Wall $*.c
++	$(CC) -c $(CFLAGS) -Wall $*.c
+ 
  wildargs.o: xtra/wildargs.c
 -	gcc -c -O2 xtra/wildargs.c
 +	$(CC) -c $(CFLAGS) xtra/wildargs.c
  
  libpng.a: ../lib-cos/libpng/libpng.a
  	cp ../lib-cos/libpng/libpng.a libpng.a
-@@ -27,4 +30,4 @@
- 	cd ../lib-cos/libpng; ${MAKE} -f scripts/makefile.gcc; cd ../../src
+@@ -33,5 +36,5 @@
  
  ../lib-cos/zlib/libz.a:
--	cd ../lib-cos/zlib; ./configure; ${MAKE}; cd ../../src
-+	cd ../lib-cos/zlib; CFLAGS="$(CFLAGS)" CC="$(CC)" ./configure; ${MAKE}; cd ../../src
+ 	cd ../lib-cos/zlib; \
+-	${MAKE} CC="gcc" CFLAGS="-O3 -DNO_GZCOMPRESS -DNO_GZIO" libz.a; \
++	${MAKE} CC="$(CC)" CFLAGS="$(CFLAGS)" libz.a; \
+ 	cd ../../src
