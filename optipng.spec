@@ -41,10 +41,10 @@ informacji. Aby osi±gn±æ ten cel stosuje siê:
 %setup -q
 
 %build
-cd src
-%{__make} -f scripts/gcc.mak \
+%{__make} -C src -f scripts/gcc.mak \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags}"
+	CFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
