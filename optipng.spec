@@ -2,13 +2,12 @@ Summary:	Optimizer for png files
 Summary(pl):	Optymalizator plików png
 Summary(pt_BR):	Utilitário para compressão de pngs
 Name:		optipng
-Version:	0.4.5
+Version:	0.4.7
 Release:	1
 License:	zlib/libpng
 Group:		Applications/Graphics
 Source0:	http://www.cs.toronto.edu/~cosmin/pngtech/optipng/%{name}-%{version}.tar.gz
-# Source0-md5:	fe3c1b7f605ee3e51c321987c83e2252
-Patch0:		%{name}-opt.patch
+# Source0-md5:	673337f61d53830541ff987f50025b96
 URL:		http://www.cs.toronto.edu/~cosmin/pngtech/optipng/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,13 +39,12 @@ informacji. Aby osi±gn±æ ten cel stosuje siê:
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 cd src
-%{__make} -f scripts/Makefile.gcc \
+%{__make} -f scripts/gcc.mak \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I../zlib"
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
