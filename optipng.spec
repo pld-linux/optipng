@@ -30,8 +30,8 @@ zmniejszenie ich rozmiaru do minimum bez straty jakichkolwiek
 informacji. Aby osi±gn±æ ten cel stosuje siê:
 
 - Bezstratn± redukcjê g³êbi kolorów, typu koloru i palety kolorów. Ten
-  krok zmiejsza rozmiar nieskompresowanego obrazu, przez co zmniejsza
-  siê równie¿ rozmiar skompresowanego obrazu (czyli wielko¶æ pliku PNG.)
+  krok zmniejsza rozmiar nieskompresowanego obrazu, przez co zmniejsza
+  siê równie¿ rozmiar skompresowanego obrazu (czyli wielko¶æ pliku PNG).
 
 - Porównuje siê wyniki dzia³ania ró¿nych metod i strategii kompresji w
   celu wyboru takich parametrów, które daj± najmniejszy rozmiar pliku
