@@ -9,6 +9,7 @@ Group:		Applications/Graphics
 Source0:	http://www.cs.toronto.edu/~cosmin/pngtech/optipng/%{name}-%{version}.tar.gz
 # Source0-md5:	3ed23ff9c204d7ffbd0fa6b3c53d830e
 Patch0:		%{name}-opt.patch
+URL:		http://www.cs.toronto.edu/~cosmin/pngtech/optipng/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
