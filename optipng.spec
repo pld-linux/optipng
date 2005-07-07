@@ -9,7 +9,6 @@ Group:		Applications/Graphics
 Source0:	http://www.cs.toronto.edu/~cosmin/pngtech/optipng/%{name}-%{version}.tar.gz
 # Source0-md5:	0f3648f06a389d7bbb1e6bf309581b6a
 URL:		http://www.cs.toronto.edu/~cosmin/pngtech/optipng/
-BuildRequires:	libpng-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
