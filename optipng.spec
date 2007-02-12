@@ -1,6 +1,6 @@
 Summary:	Optimizer for png files
-Summary(pl):	Optymalizator plików png
-Summary(pt_BR):	Utilitário para compressão de pngs
+Summary(pl.UTF-8):   Optymalizator plikÃ³w png
+Summary(pt_BR.UTF-8):   UtilitÃ¡rio para compressÃ£o de pngs
 Name:		optipng
 Version:	0.5.2
 Release:	1
@@ -24,17 +24,17 @@ achieve this goal, OptiPNG performs the following tasks:
 - It runs a suite of compression methods and strategies, and selects
   the compression parameters that yield the smallest output file.
 
-%description -l pl
-G³ównym zadaniem OptiPNG jest optymalizacja plików PNG, tzn.
+%description -l pl.UTF-8
+GÅ‚Ã³wnym zadaniem OptiPNG jest optymalizacja plikÃ³w PNG, tzn.
 zmniejszenie ich rozmiaru do minimum bez straty jakichkolwiek
-informacji. Aby osi±gn±æ ten cel stosuje siê:
+informacji. Aby osiÄ…gnÄ…Ä‡ ten cel stosuje siÄ™:
 
-- Bezstratn± redukcjê g³êbi kolorów, typu koloru i palety kolorów. Ten
+- BezstratnÄ… redukcjÄ™ gÅ‚Ä™bi kolorÃ³w, typu koloru i palety kolorÃ³w. Ten
   krok zmniejsza rozmiar nieskompresowanego obrazu, przez co zmniejsza
-  siê równie¿ rozmiar skompresowanego obrazu (czyli wielko¶æ pliku PNG).
+  siÄ™ rÃ³wnieÅ¼ rozmiar skompresowanego obrazu (czyli wielkoÅ›Ä‡ pliku PNG).
 
-- Porównuje siê wyniki dzia³ania ró¿nych metod i strategii kompresji w
-  celu wyboru takich parametrów, które daj± najmniejszy rozmiar pliku
+- PorÃ³wnuje siÄ™ wyniki dziaÅ‚ania rÃ³Å¼nych metod i strategii kompresji w
+  celu wyboru takich parametrÃ³w, ktÃ³re dajÄ… najmniejszy rozmiar pliku
   wynikowego.
 
 %prep
