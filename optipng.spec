@@ -1,6 +1,6 @@
 Summary:	Optimizer for png files
-Summary(pl.UTF-8):   Optymalizator plików png
-Summary(pt_BR.UTF-8):   Utilitário para compressão de pngs
+Summary(pl.UTF-8):	Optymalizator plików png
+Summary(pt_BR.UTF-8):	Utilitário para compressão de pngs
 Name:		optipng
 Version:	0.5.2
 Release:	1
