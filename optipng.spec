@@ -2,12 +2,12 @@ Summary:	Optimizer for png files
 Summary(pl.UTF-8):	Optymalizator plików png
 Summary(pt_BR.UTF-8):	Utilitário para compressão de pngs
 Name:		optipng
-Version:	0.5.5
+Version:	0.6.2
 Release:	1
 License:	zlib/libpng
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/optipng/%{name}-%{version}.tar.gz
-# Source0-md5:	9dbc2bb39e39b6ab4ed0c705d8035bdf
+# Source0-md5:	08b6195bb5895a7fe167fab16dcdf6d5
 URL:		http://optipng.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
