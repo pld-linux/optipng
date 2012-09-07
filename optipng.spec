@@ -10,15 +10,15 @@ Summary:	Optimizer for png files
 Summary(pl.UTF-8):	Optymalizator plików png
 Summary(pt_BR.UTF-8):	Utilitário para compressão de pngs
 Name:		optipng
-Version:	0.6.4
+Version:	0.7.2
 Release:	1
 License:	BSD, Zlib/libpng
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/optipng/%{name}-%{version}.tar.gz
-# Source0-md5:	d6c10dd8d8f1d5b579221bc9cfbfbcb6
+# Source0-md5:	3bf5ff3e1dff99adb3c0b3dd9fd99f8a
 URL:		http://optipng.sourceforge.net/
-%{?with_system_libpng:BuildRequires:	libpng-devel >= 1.4.1}
-%{?with_system_zlib:BuildRequires:	zlib-devel >= 1.2.4}
+%{?with_system_libpng:BuildRequires:	libpng-devel >= 1.4.12}
+%{?with_system_zlib:BuildRequires:	zlib-devel >= 1.2.7}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,8 +41,7 @@ informacji. Aby osiągnąć ten cel stosuje się:
 
 - Bezstratną redukcję głębi kolorów, typu koloru i palety kolorów. Ten
   krok zmniejsza rozmiar nieskompresowanego obrazu, przez co zmniejsza
-  się również rozmiar skompresowanego obrazu (czyli wielkość pliku
-  PNG).
+  się również rozmiar skompresowanego obrazu (czyli wielkość pliku PNG).
 
 - Porównuje się wyniki działania różnych metod i strategii kompresji w
   celu wyboru takich parametrów, które dają najmniejszy rozmiar pliku
@@ -54,24 +53,25 @@ informacji. Aby osiągnąć ten cel stosuje się:
 %build
 ./configure \
 	-prefix=%{_prefix} \
+	-mandir=%{_mandir} \
 	%{?with_system_libpng:-with-system-libpng} \
 	%{?with_system_zlib:-with-system-zlib}
 
-%{__make} -C src -f scripts/gcc.mak -j1 \
+%{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-
-install src/optipng $RPM_BUILD_ROOT%{_bindir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/{caveat.txt,history.txt,manual.html,png_optimization_guide.html,thanks.html,todo.txt}
+%doc README.txt AUTHORS.txt doc/{history.txt,png_optimization.html,todo.txt}
 %attr(755,root,root) %{_bindir}/optipng
+%{_mandir}/man1/optipng.1*
