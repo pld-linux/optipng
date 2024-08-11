@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	system_libpng	# use system libpng (forces system zlib; not ready for libpng 1.5)
+%bcond_with	system_libpng	# use system libpng (forces system zlib)
 %bcond_with	system_zlib	# use system zlib (included one is slightly more aggressive)
 #
 %if %{with system_libpng}
@@ -10,15 +10,15 @@ Summary:	Optimizer for png files
 Summary(pl.UTF-8):	Optymalizator plików png
 Summary(pt_BR.UTF-8):	Utilitário para compressão de pngs
 Name:		optipng
-Version:	0.7.7
+Version:	0.7.8
 Release:	1
 License:	BSD, Zlib/libpng
 Group:		Applications/Graphics
-Source0:	http://downloads.sourceforge.net/optipng/%{name}-%{version}.tar.gz
-# Source0-md5:	211101965baf42fd24a2aa990b7e842e
-URL:		http://optipng.sourceforge.net/
-%{?with_system_libpng:BuildRequires:	libpng-devel >= 1.4.12}
-%{?with_system_zlib:BuildRequires:	zlib-devel >= 1.2.7}
+Source0:	https://downloads.sourceforge.net/optipng/%{name}-%{version}.tar.gz
+# Source0-md5:	e340235722cc39ed3b8bc539b9c63f2d
+URL:		https://optipng.sourceforge.net/
+%{?with_system_libpng:BuildRequires:	libpng-devel >= 2:1.6.40}
+%{?with_system_zlib:BuildRequires:	zlib-devel >= 1.3}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
